@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.react-mde {
+  background-color: #fff; /* light */
+  color: #111827; /* gray-900 */
+  border-color: #d1d5db; /* gray-300 */
+}
+
+.react-mde .mde-header {
+  background-color: #f9fafb; /* light */
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.react-mde .mde-preview {
+  background-color: #ffffff;
+  color: #111827;
+  border-top: 1px solid #e5e7eb;
+}
+
+.react-mde .mde-text {
+  background-color: #ffffff;
+  color: #111827;
+}
+
+/* Dark mode */
+.dark .react-mde {
+  background-color: #1f2937; /* gray-800 */
+  color: #d1d5db; /* gray-300 */
+  border-color: #4b5563; /* gray-600 */
+}
+
+.dark .react-mde .mde-header {
+  background-color: #111827; /* gray-900 */
+  border-bottom: 1px solid #374151; /* gray-700 */
+}
+
+.dark .react-mde .mde-preview {
+  background-color: #1f2937;
+  color: #e5e7eb;
+  border-top: 1px solid #374151;
+}
+
+.dark .react-mde .mde-text {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+
+/* Light mode - default */
+.react-mde .svg-icon {
+  color: #4b5563; /* Tailwind's gray-600 */
+}
+
+/* Dark mode override */
+.dark .react-mde .svg-icon {
+  color: #d1d5db; /* Tailwind's gray-300 */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
