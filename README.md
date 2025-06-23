@@ -25,7 +25,7 @@
 ```bash
 # Clone repo
 git clone https://github.com/Tapolta/BroNote.git
-cd BroNote
+cd BroNote/client
 
 # Install dependencies
 npm install
