@@ -1,6 +1,7 @@
 import { useGlobalState } from "../../store/GlobalStateContext";
 import { NoteProps } from "../../types/GlobalTypes";
 import { getNotes, saveNotes } from "../../utils/localstorage";
+import TagStyle from "../ui/TagStyle";
 
 interface NoteDeletePopUpProps {
     onDelete: () => void,
@@ -49,12 +50,8 @@ const NoteDeletePopUp = ({ onDelete, note }: NoteDeletePopUpProps) => {
                     <h4 className="font-semibold text-gray-800 dark:text-gray-200 truncate">
                         {note.title || "Untitled Note"}
                     </h4>
-                    <span className="px-2 py-1 text-xs rounded-full" 
-                          style={{ 
-                              backgroundColor: note.tag?.color || '#e5e7eb',
-                              color: getContrastColor(note.tag?.color || '#e5e7eb')
-                          }}>
-                        {note.tag?.name || 'No tag'}
+                    <span className="px-2 py-1 text-xs rounded-full" >
+                          <TagStyle tag={note.tag}/>
                     </span>
                 </div>
                 
@@ -87,14 +84,6 @@ const NoteDeletePopUp = ({ onDelete, note }: NoteDeletePopUpProps) => {
             </div>
         </div>
     )
-}
-
-function getContrastColor(hexColor: string) {
-    const r = parseInt(hexColor.substr(1, 2), 16);
-    const g = parseInt(hexColor.substr(3, 2), 16);
-    const b = parseInt(hexColor.substr(5, 2), 16);
-    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-    return brightness > 128 ? '#000000' : '#ffffff';
 }
 
 export default NoteDeletePopUp;

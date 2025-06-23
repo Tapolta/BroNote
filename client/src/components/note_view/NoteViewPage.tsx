@@ -82,6 +82,14 @@ const NoteViewPage = () => {
     }
   }
 
+  const tagDeleteHandle = () => {
+    if (note && editedNote) {
+      setEditedNote({...editedNote, tag: note.tag});
+    } else {
+      navigate('/');
+    }
+  }
+
   const onDownload = () => {
 
   }
@@ -208,7 +216,7 @@ const NoteViewPage = () => {
                 <NoteMetaEditor 
                   tag={editedNote.tag} 
                   onTagChange={(e) => setEditedNote({...editedNote, tag: e})}
-                  onDelete={() => {}}
+                  onDelete={tagDeleteHandle}
                 />
               </div>
             ) : (

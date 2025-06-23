@@ -38,21 +38,38 @@ const TagEditor = ({ tag, onTagChange, onDelete }: TagEditorProp) => {
     setPopUp({enable: true, children : <TagPopUp onDelete={onDelete}/>})
   }
 
-  const getTagColor = () => {
+  const getTagColorClasses = () => {
     let color = 'gray';
     if (tag.color) {
       color = tag.color;
     }
-    return `bg-${color}-100/80 text-${color}-800 dark:bg-${color}-800 dark:text-${color}-200`;
+
+    switch (color) {
+      case 'red':
+        return 'bg-red-50/50 text-red-700 ring-red-500/10 dark:bg-red-950/30 dark:text-red-300 dark:ring-red-300/10';
+      case 'blue':
+        return 'bg-blue-50/50 text-blue-700 ring-blue-500/10 dark:bg-blue-950/30 dark:text-blue-300 dark:ring-blue-300/10';
+      case 'green':
+        return 'bg-green-50/50 text-green-700 ring-green-500/10 dark:bg-green-950/30 dark:text-green-300 dark:ring-green-300/10';
+      case 'yellow':
+        return 'bg-yellow-50/50 text-yellow-700 ring-yellow-500/10 dark:bg-yellow-950/30 dark:text-yellow-300 dark:ring-yellow-300/10';
+      case 'purple':
+        return 'bg-purple-50/50 text-purple-700 ring-purple-500/10 dark:bg-purple-950/30 dark:text-purple-300 dark:ring-purple-300/10';
+      case 'pink':
+        return 'bg-pink-50/50 text-pink-700 ring-pink-500/10 dark:bg-pink-950/30 dark:text-pink-300 dark:ring-pink-300/10';
+      default:
+        // Default gray for undefined colors
+        return 'bg-gray-50/50 text-gray-700 ring-gray-500/10 dark:bg-gray-900/20 dark:text-gray-300 dark:ring-gray-300/10';
+    }
   };
 
   return (
     <div className='flex items-center gap-2'>
       <div className="relative" ref={dropdownRef}>
-        <button
+       <button
           onClick={tagSelectHandle}
-          className={`px-4 py-1.5 text-sm font-medium rounded-full border dark:border-gray-700 
-            transition-all duration-200 ease-out ${getTagColor()} 
+          className={`px-3 py-1 text-sm font-medium rounded-md ring-1 
+            transition-all duration-200 ease-out ${getTagColorClasses()} 
             hover:scale-[1.03] hover:shadow-sm active:scale-100 active:shadow-none flex 
             items-center gap-1.5`}
         >
