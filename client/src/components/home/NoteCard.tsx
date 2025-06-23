@@ -69,9 +69,6 @@ const NoteCard = ({ note, compact = true, onDelete } : NoteCardProp) => {
             onClick={viewHandle}>
             View
           </button>
-          <button className={`${compact ? 'text-xs px-2 py-0.5' : 'text-sm px-3 py-1'} text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 font-medium rounded-md hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors`}>
-            Edit
-          </button>
         </div>
       </div>
     </div>

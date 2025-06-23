@@ -13,9 +13,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/view-note/:id" element={
-          <NoteViewPage />
-          } />
+        <Route path="/view-note/:id" element={<NoteViewPage />} />
           <Route path="/create-note" element={<CreateNote />} />
       </Routes>
       {popUp.enable && 

@@ -1,16 +1,35 @@
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const BackButton = () => {
   const navigate = useNavigate();
+  const [canGoBack, setCanGoBack] = useState(false);
+
+  useEffect(() => {
+    if (window.history.length > 1) {
+      try {
+        const previousPageUrl = document.referrer;
+        const currentOrigin = window.location.origin;
+        
+        if (previousPageUrl && previousPageUrl.startsWith(currentOrigin)) {
+          setCanGoBack(true);
+        } else {
+          setCanGoBack(false);
+        }
+      } catch (error) {
+        setCanGoBack(window.history.length > 2);
+      }
+    }
+  }, []);
 
   const onBack = () => {
-    if (window.history.length > 2) {
+    if (canGoBack) {
       navigate(-1);
     } else {
       navigate('/');
     }
-  }
+  };
 
   return (
     <button 

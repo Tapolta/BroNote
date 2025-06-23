@@ -137,7 +137,7 @@ const NoteViewPage = () => {
   return (
     <div className="min-h-[98vh] max-w-3xl mx-auto p-4 sm:p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-lg dark:shadow-gray-800/50 border border-gray-100 dark:border-gray-800 transition-all duration-200">
       <div className='flex justify-between align-center'>
-        <BackButton />
+        {!isEditing && <BackButton />}
         <div className="relative">
           <button 
             onClick={() => setShowActions(!showActions)}
